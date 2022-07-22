@@ -58,10 +58,10 @@ public class MovieTitles {
             @ProcessElement
             public void processElement(ProcessContext c) {
                 Names element = c.element();
-                Map<String, Iterable<Principals>> mapPrincipals = c.sideInput(view);
+                /*Map<String, Iterable<Principals>> mapPrincipals = c.sideInput(view);
                 Iterable<Principals> p = mapPrincipals.get(element.getNconst());
                 Map<String, TitleBasics> mapTitle = c.sideInput(viewTitleBasics);
-                mapTitle.get(p.getTconst());
+                mapTitle.get(p.getTconst());*/
                 QueryResult q = new QueryResult();
                 q.setName(element.getPrimaryName());
                 c.output(q);
