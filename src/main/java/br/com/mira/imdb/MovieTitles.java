@@ -1,28 +1,24 @@
 package br.com.mira.imdb;
-import br.com.mira.imdb.accumulators.NameToPrincipalAccumulatorFn;
+
+import br.com.mira.imdb.models.Names;
 import br.com.mira.imdb.models.Principals;
 import br.com.mira.imdb.models.TitleBasics;
 import br.com.mira.imdb.models.result.QueryResult;
 import br.com.mira.imdb.transforms.NameTransform;
 import br.com.mira.imdb.transforms.PrincipalsTransform;
-import br.com.mira.imdb.transforms.QueryTransform;
 import br.com.mira.imdb.transforms.TitleBasicsTransform;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.TextIO;
-import org.apache.beam.sdk.options.PipelineOptions;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.apache.beam.sdk.transforms.*;
-import org.apache.beam.sdk.values.*;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.MapElements;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.View;
+import org.apache.beam.sdk.values.KV;
+import org.apache.beam.sdk.values.TypeDescriptor;
+import org.apache.beam.sdk.values.TypeDescriptors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Text;
-
-import br.com.mira.imdb.models.Names;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class MovieTitles {
 
